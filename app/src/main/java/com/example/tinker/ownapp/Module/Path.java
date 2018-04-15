@@ -5,7 +5,8 @@ package com.example.tinker.ownapp.Module;
  */
 
 public class Path {
-    public static String basePath = "http://123.207.87.97:8080/";
+    public static String basePath = "http://zyhcloud.cn/";
     public static String testPath = "tinker/test";
+    public static String testWebPage ="tinker/welcome.jsp";
 
 }

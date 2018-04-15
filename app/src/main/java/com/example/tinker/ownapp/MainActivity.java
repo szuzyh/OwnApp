@@ -1,5 +1,7 @@
 package com.example.tinker.ownapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.example.tinker.ownapp.Module.MSG;
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     return true;
                 case R.id.navigation_dashboard:
+                    Intent jumpIntent = new Intent();
+                    jumpIntent.setAction(Intent.ACTION_VIEW);
+                    jumpIntent.setData(Uri.parse(Path.basePath + Path.testWebPage));
+                    startActivity(jumpIntent);
                     return true;
                 case R.id.navigation_notifications:
                     return true;
@@ -74,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
 
-            return getJsonDataFromUrl(Path.basePath+Path.testPath);
+            return getJsonDataFromUrl(Path.basePath + Path.testPath);
         }
 
         @Override
